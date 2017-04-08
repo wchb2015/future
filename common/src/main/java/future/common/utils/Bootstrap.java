@@ -17,6 +17,7 @@ public class Bootstrap {
             if (args == null || args.length == 0) {
                 LOG.info("spring server bootstrap use config file : application-context.xml under the classpath.");
                 context = new ClassPathXmlApplicationContext("classpath:spring/application-context.xml");
+
             } else {
                 context = new ClassPathXmlApplicationContext(args);
             }
