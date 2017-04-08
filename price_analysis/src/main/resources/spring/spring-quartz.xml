@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--工作bean Start-->
+    <bean id="quartzJob1" class="future.priceAnalysis.job.QuartzJob1"/>
+    <bean id="quartzJob2" class="future.priceAnalysis.job.QuartzJob2"/>
+    <!--工作bean End-->
+
+    <bean name="startQuartz" lazy-init="false" autowire="no"
+          class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="myJobTrigger1"/>
+                <ref bean="myJobTrigger2"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--CronTriggerFactoryBean Start  主要配置了时间表达式-->
+    <bean id="myJobTrigger1"
+          class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail">
+            <ref bean="myJobDetail1"/>
+        </property>
+        <!--周一到周五 每天16点执行一次-->
+        <property name="cronExpression" value="0 0 16 ? * MON-FRI"/>
+    </bean>
+
+    <bean id="myJobTrigger2"
+          class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail">
+            <ref bean="myJobDetail2"/>
+        </property>
+        <!--周一到周五  9,10,11,13,14,21,22,23点每1秒运行一次-->
+        <property name="cronExpression" value="0/1 * 9,10,11,13,14,21,22,23 ? * MON-FRI"/>
+    </bean>
+    <!--CronTriggerFactoryBean End  主要配置了时间表达式-->
+
+    <!--MethodInvokingJobDetailFactoryBean start-->
+    <bean id="myJobDetail1"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="quartzJob1"/>
+        </property>
+        <property name="targetMethod">
+            <value>run</value>
+        </property>
+    </bean>
+
+    <bean id="myJobDetail2"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="quartzJob2"/>
+        </property>
+        <property name="targetMethod">
+            <value>run</value>
+        </property>
+    </bean>
+    <!--MethodInvokingJobDetailFactoryBean End-->
+
+</beans>
