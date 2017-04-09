@@ -4,18 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>future</groupId>
-    <artifactId>base_pom</artifactId>
+    <groupId>com.wchb.future</groupId>
+    <artifactId>future_base_pom</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
+    <name>future_base_pom</name>
+
     <modules>
-        <module>common</module>
-        <module>price_analysis</module>
-        <module>web_api</module>
+        <module>future_common</module>
+        <module>future_price_analysis</module>
+        <module>future_web_api</module>
     </modules>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.2.0.RELEASE</spring.version>
         <slf4j.version>1.7.25</slf4j.version>
     </properties>

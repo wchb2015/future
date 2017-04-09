@@ -3,14 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>base_pom</artifactId>
-        <groupId>future</groupId>
+        <artifactId>future_base_pom</artifactId>
+        <groupId>com.wchb.future</groupId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>price_analysis</artifactId>
+    <artifactId>future_price_analysis</artifactId>
 
     <packaging>jar</packaging>
 
@@ -152,7 +152,7 @@
         </dependency>
 
         <dependency>
-            <groupId>future</groupId>
+            <groupId>com.wchb.future</groupId>
             <artifactId>common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
@@ -161,7 +161,7 @@
     <!-- Build Settings -->
     <!--http://maven.apache.org/pom.html#Build_Settings-->
     <build>
-        <finalName>price_analysis</finalName>
+        <!--<finalName>price_analysis</finalName>-->
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -172,21 +172,6 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
-
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <webResources>
-                        <resource>
-                            <directory>src/main/webapp</directory>
-                            <filtering>true</filtering>
-                        </resource>
-                    </webResources>
-                </configuration>
-            </plugin>
-        </plugins>
     </build>
 
     <profiles>
