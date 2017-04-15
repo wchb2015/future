@@ -11,6 +11,8 @@ import java.util.concurrent.atomic.AtomicLong;
 @WebServlet(name = "ServletTest01")
 public class ServletTest01 extends HttpServlet {
 
+    private static final long serialVersionUID = 1981390456094593428L;
+
     private final AtomicLong count = new AtomicLong(0);
 
     public long getCount() {
