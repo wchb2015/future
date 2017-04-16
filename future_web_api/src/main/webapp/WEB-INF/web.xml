@@ -3,4 +3,27 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+
+    <display-name>future_web_api</display-name>
+
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring/application-context.xml</param-value>
+        </init-param>
+        <!--contextConfigLocation配置springmvc加载的配置文件(配置处理映射器,适配器等等),
+        如果不配置contextConfigLocation,默认加载的是/WEB-INF/servlet_name-servlet.xml(dispatcher-servlet.xml-->
+        <!-- <init-param>
+             <param-name>contextConfigLocation</param-name>
+             <param-value>classpath:springmvc.xml</param-value>
+         </init-param>-->
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
 </web-app>
