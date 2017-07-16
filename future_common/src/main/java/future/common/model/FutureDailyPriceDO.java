@@ -13,7 +13,7 @@ public class FutureDailyPriceDO {
     private Long id;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String contractName;
+    private String contractCode;
 
     private Date date;
 
@@ -48,12 +48,12 @@ public class FutureDailyPriceDO {
     }
 
     @JsonProperty("contract_name")
-    public String getContractName() {
-        return contractName;
+    public String getContractCode() {
+        return contractCode;
     }
 
-    public void setContractName(String contractName) {
-        this.contractName = contractName;
+    public void setContractCode(String contractName) {
+        this.contractCode = contractName;
     }
 
     public Date getDate() {
@@ -168,7 +168,7 @@ public class FutureDailyPriceDO {
     public String toString() {
         return "FutureDailyPrice{" +
                 "id=" + id +
-                ", contractName='" + contractName + '\'' +
+                ", contractName='" + contractCode + '\'' +
                 ", date=" + date +
                 ", openingPrice=" + openingPrice +
                 ", closingPrice=" + closingPrice +

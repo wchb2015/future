@@ -43,11 +43,11 @@ public class SinaPriceUtil {
 
     private static String baseUrl = "http://hq.sinajs.cn/list=";
 
-    public static FutureDailyPriceDO getDailyPrice(String contractName) {
+    public static FutureDailyPriceDO getDailyPrice(String contractCode) {
         FutureDailyPriceDO result = new FutureDailyPriceDO();
         String priceStr = null;
         try {
-            priceStr = HttpUtil.getResponseBody(baseUrl + contractName);
+            priceStr = HttpUtil.getResponseBody(baseUrl + contractCode);
         } catch (Exception e) {
             LOG.error("SinaInterfaceProcess:getDailyPrice ERROR:{} ", e.getMessage());
         }
@@ -57,7 +57,7 @@ public class SinaPriceUtil {
             /* for (int i = 0; i < priceArr.length; i++) {
                 System.out.println(i + "_" + priceArr[i]);
              }*/
-            result.setContractName(contractName);
+            result.setContractCode(contractCode);
             result.setDate(DateUtil.parseDateStr(priceArr[17]));
 
             result.setOpeningPrice(Long.parseLong(priceArr[2]));

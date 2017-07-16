@@ -1,7 +1,7 @@
 -- 1.期货每日价格表(ID,合约名称,开盘价,收盘价,最高价,最低价,结算价,K线类型,星期数,持仓量,成交量,价差1(开收价差),价差2(最高最低价差))
 CREATE TABLE future_daily_price (
   `id`                   BIGINT       NOT NULL AUTO_INCREMENT,
-  `contract_name`        VARCHAR(50)  NOT NULL COMMENT '合约名称',
+  `contract_code`        VARCHAR(50)  NOT NULL COMMENT '合约CODE',
   `date`                 DATETIME     NOT NULL COMMENT '日期yyyy-mm-dd',
   `opening_price`        SMALLINT     NOT NULL COMMENT '开盘价',
   `closing_price`        SMALLINT     NOT NULL COMMENT '收盘价',
@@ -15,7 +15,7 @@ CREATE TABLE future_daily_price (
   `created_at`           DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP   COMMENT '创建时间',
   `updated_at`           DATETIME     COMMENT '更新时间',
   PRIMARY KEY (id),
-  UNIQUE KEY `unique_key_date_contract` (`date`,`contract_name`)
+  UNIQUE KEY `unique_key_date_contract` (`date`,`contract_code`)
 )
   ENGINE = INNODB
   AUTO_INCREMENT = 1

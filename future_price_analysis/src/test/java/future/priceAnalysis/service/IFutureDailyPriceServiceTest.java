@@ -16,8 +16,7 @@ public class IFutureDailyPriceServiceTest {
 
     @Test
     public void saveFutureDailyPrice() throws Exception {
-        //        dailyPriceService.saveFutureDailyPrice(SinaPriceUtil.getDailyPrice("P1709"));
-
+        dailyPriceService.saveFutureDailyPrice(SinaPriceUtil.getDailyPrice("P1709"));
     }
 
 }

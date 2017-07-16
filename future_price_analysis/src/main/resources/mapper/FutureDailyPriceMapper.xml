@@ -5,10 +5,10 @@
     <!--    int insertFutureDailyPrice(FutureDailyPrice dailyPrice);-->
     <insert id="insertFutureDailyPrice" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO future_daily_price
-        (contract_name,date,opening_price,closing_price,the_highest_price,the_lowest_price,
+        (contract_code,date,opening_price,closing_price,the_highest_price,the_lowest_price,
         average_price,oc_spread,hl_spread, open_interest,volume,created_at)
         VALUES
-        (#{contractName},#{date},#{openingPrice},#{closingPrice},#{theHighestPrice},#{theLowestPrice},
+        (#{contractCode},#{date},#{openingPrice},#{closingPrice},#{theHighestPrice},#{theLowestPrice},
         #{averagePrice},#{ocSpread},#{hlSpread},#{openInterest},#{volume},sysdate())
     </insert>
 
